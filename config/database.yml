@@ -1,0 +1,25 @@
+default: &default
+  adapter: mysql2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 50
+
+development:
+  <<: *default
+  adapter: mysql2
+  database: kings_dev
+  username: root
+  password: <%= ENV["KINGS_DATABASE_PASSWORD"] %>
+
+test:
+  <<: *default
+  adapter: mysql2
+  database: kings_test
+  username: root
+  password: <%= ENV["KINGS_DATABASE_PASSWORD"] %>
+
+production:
+  <<: *default
+  adapter: mysql2
+  database: kings_prod
+  username: root
+  password: <%= ENV["KINGS_DATABASE_PASSWORD"] %>

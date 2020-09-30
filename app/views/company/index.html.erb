@@ -1,0 +1,21 @@
+<h1>Company#index</h1>
+
+<%= paginate @companies %>
+
+<table>
+  <tr>
+    <th>Company name</th>
+    <th>Tags</th>
+    <th>Contacts count</th>
+  </tr>
+
+  <% @companies.each do |company| %>
+    <tr>
+      <td> <%= company.name %> </td>
+      <td> <%= company_tags(company) %> </td>
+      <td> <%= company.count_contacts %> </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @companies %>
